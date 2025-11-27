@@ -1,0 +1,17 @@
+name: TestsWorkflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Testes
+        run: echo "Rodando testes"
