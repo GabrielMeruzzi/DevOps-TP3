@@ -1,0 +1,17 @@
+name: Gradle-CI-Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Build com Maven
+        run: mvn -B clean install
