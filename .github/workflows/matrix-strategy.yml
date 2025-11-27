@@ -1,0 +1,27 @@
+name: MatrixStrategyWorkflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java-version: [ 11, 17 ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix['java-version'] }}
+
+      - name: Exibir versão Java
+        run: |
+          echo "Versão ativa do Java: ${{ matrix.java-version }}"
+          java -version
