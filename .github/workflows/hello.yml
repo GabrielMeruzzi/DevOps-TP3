@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Exebibir LOG
+      - name: Exibir LOG
         run: echo "Hello CI/CD"
 
