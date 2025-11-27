@@ -1,0 +1,17 @@
+name: Env-Demo-Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    env:
+      DEPLOY_ENV: staging
+
+    steps:
+      - name: Print environment variable
+        run: |
+          echo "Variável de ambiente DEPLOY_ENV: $DEPLOY_ENV"
+        
