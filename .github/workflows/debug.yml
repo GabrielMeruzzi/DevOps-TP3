@@ -1,0 +1,11 @@
+name: DebugWorkflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step com debug
+        run: echo "Rodando com debug habilitado..."
