@@ -1,0 +1,34 @@
+name: DeployWorkflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      ENVIRONMENT: prod
+      API_KEY: ${{ secrets.API_KEY }}
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Informações do ambiente
+        run: |
+          echo "Ambiente: $ENVIRONMENT"
+
+      - name: Executar build
+        run: |
+          echo "Iniciando build no ambiente $ENVIRONMENT..."
+
+      - name: Deploy para produção
+        run: |
+          echo "Realizando deploy no ambiente: $ENVIRONMENT"
+
+      - name: Mensagem final
+        if: env.ENVIRONMENT == 'prod'
+        run: echo "Deploy em PRODUÇÃO concluído"
